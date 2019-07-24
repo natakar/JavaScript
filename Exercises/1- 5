@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercises 1-5</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">	
+</head>
+<body >
+	<script type="text/javascript">
+	//есть массив. надо убрать буквы, оставить цифры и сделать строковые - цифрами
+		document.write('==== 1 ========== <br> <br>');
+		var a = ['100 popugaev', '201dom', '624 dollara', '33 mashiny'];	
+		function b(m){
+		for (var i = 0; i < m.length; i++){
+			m[i] = parseInt(m[i]);
+			document.write(m[i] + '  ');
+			}
+		}
+		b(a);
+		
+	document.write('<br> <br>'); document.write('==== 2 ========== <br> <br>');		
+	//есть массив - имеет и текст  и числа. написать ф-ю которая показывает  какой элемент текстовый, какой - числовой.
+		
+		var x = ['Moloko', 77, 11, 'Medf', -88, '221'];
+		function Znach(n){
+			for (var i = 0; i < n.length; i++){
+				if(isNaN(n[i])){
+					document.write(n[i] + ' - текст' + '<br>');
+				}else {
+					document.write(n[i] + ' - число' + '<br>');
+				}
+			}
+		}
+		Znach(x);
+		
+	document.write('<br>'); document.write('==== 3 ========== <br> <br>');
+	 //в массив в цифры без точек поставить 2 цифры после точки
+		
+		var q = [10.5, 15, 112, 77.5];
+		function fix(two){
+			for (var i = 0; i < two.length; i++){
+				two[i] = two[i].toFixed(3);
+				document.write(two[i] + ',  ');
+				}
+			}
+		fix(q);
+		
+	document.write('<br><br>'); document.write('==== 4 ========== <br> <br>');	
+	//округлять числа из массива
+	var thisAr = [32.02, 12.90, 17.49, 78.51];
+	function methodAr(ar, n){
+		for (var i=0; i < ar.length; i++){			
+			if (n == 'round'){
+				ar[i] = Math.round(ar[i]);
+				document.write(ar[i] + ',  '); 				
+			}else if (n == 'ceil'){
+				ar[i] = Math.ceil(ar[i]);
+				document.write(ar[i]+ ',  ');
+				
+			}else if (n == 'floor'){
+				ar[i] = Math.floor(ar[i]);
+				document.write(ar[i]+ ',  ');
+			}else document.write('Wrong'+ '<br>');
+			}				
+		}	
+	methodAr(thisAr, 'ceil');
+	document.write('<br><br>'); document.write('==== 5 ========== <br> <br>');
+	
+	//вывести дату, которая наступит через n-дней (пользователь введет при запросе)
+	/*пример: через 79 дней будет дата: День недели, число, месяц, год.	*/
+	
+	 function viewDate (n){	 
+	 //сколько прошло милисек к текущему моменту:
+		var now = new Date();
+		var nowMili = now.getTime();
+		//сколько млсек в 79 днях:
+		var t79 = new Date(1000*60*60*24*n);
+		var milli79 = t79.getTime();
+		//складываем время к настоящему моменту и 79 дней впереди - получим через 79 дней:	
+		var sum = nowMili + milli79;
+		var futer79 = new Date(sum);
+		//вывести день недели и месяц - словом, а не числом:	
+		var myDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+		var myMon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Okt', 'Nov', 'Des'];
+		
+		document.write('День недели: ' + myDays[futer79.getDay()]+ '<br>'+'число: ' + futer79.getDate()+ '<br>' + 'месяц: ' + myMon[futer79.getMonth()]+ '<br>' + 'год: ' + futer79.getFullYear()+ '<br>' + '<br>');
+	 } 
+	 
+	 //запрашиваем число, проверяем чтобы было положительным  и целым: 
+	 var user = prompt('Введите количество дней от 1 до 10000');
+	 if(user > 10000 || user < 1 || isNaN(user)){
+		document.write('Не корректное значение');
+	 }else {
+	 //округление значения если клиент ввел не целое значение:
+	 var itog = Math.round(user);		
+	 document.write('Через ' + itog +  ' дн. будет дата: ' + '<br>');	 
+		viewDate (itog);
+	 }	
+	
+	</script>
+</body>
+</html>
 
