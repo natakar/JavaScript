@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercises 10 - 13</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	
+	
+</head>
+<body >
+	<script type="text/javascript">
+	//=========== 10 ====================================
+	document.write('======= 10 =================');
+	//создать ф-ю, кот запрашивает ФИО и возвращает цельную строку	
+	function fio(){
+		var name = prompt('name');
+		var famil = prompt('famil');		
+		// document.write(name + ' ' + famil + ' ' + otch);
+		var result = name + ' ' + famil;
+		return result;
+	}
+	alert('Hallo, ' + fio() + '!');
+			
+	//=========== 11 ====================================
+	document.write('<br><br>'); document.write('======= 11 ================= <br><br>');
+	//задать вопрос, перевести его в нижний регистр, сравнить с задуманным словом.
+
+	var s = 'merk';
+	var answ= prompt('Guess the word');
+	var resT = answ.toLowerCase();
+	function isIt(z){
+	if (z === s){
+		return true;}
+		else return false;
+		}
+	document.write(isIt(resT));
+	
+	//=========== 12 ====================================
+	document.write('<br><br>'); document.write('======= 12 ================= <br><br>');
+	//выяснить в каких словах массива есть не соответствие русских букв. получается цикл внутри цикла
+	var a = ['Алина', 'Gref', 'Тамила', 'Aнтоn'];
+	//создадим цикл, который перебирает каждый элемент массива
+	for(var i = 0; i < a.length; i++){		
+		for(var j = 0; j < a[i].length; j++){
+			if(a[i].charCodeAt(j) < 1040 || a[i].charCodeAt(j) > 1103){
+				 document.write(a[i].charAt(j) + " - " + a[i]+ "<br> " );
+			}
+		}		
+	}
+	
+	//=========== 13 ====================================
+	document.write('<br><br>'); document.write('======= 13 ================= <br><br>');
+	//проверить начитается ли строка с цифры
+		
+	var a = "8 pingvinov i 9 karasej";	
+	function b(v){
+		var regV = /^\d/;	
+		if (v.search(regV) == -1){document.write('no');
+		}else {document.write('yes');}			
+	}
+	b(a);	
+	</script>
+</body>
+</html>
