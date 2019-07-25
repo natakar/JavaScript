@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercises 6 - 9</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body >
+	<script type="text/javascript">
+	
+	//=========== 6 ====================================
+	document.write('======= 1 ================= <br><br>');
+	//определить с какого браузера клиент зашел на страницу. вывести эту инфу
+	var browser = navigator.userAgent;
+	//с помощью рег выражений ищем названия браузеров:
+	var regV1 = /firefox/i;
+	var regV2 = /opera/i;
+	var regV3 = /chrome/i
+	if (browser.search(regV1) != -1){
+		document.write('Your browser is firefox');
+		
+	}else if (browser.search(regV2) != -1){
+		document.write('Your browser is opera');
+		
+	}else if (browser.search(regV3) != -1){
+			document.write('Your browser is chrome');
+			
+	}else {document.write('Unknown browser');}
+	
+	//=========== 7 ====================================
+	document.write('<br><br>'); document.write('======= 2 ================= <br><br>');
+	
+	//запросить слово; написать функцию подсчета кол-ва символов в этом слове и вывести на экран
+	var myWord = prompt('Enter your word');
+	function letterCount(simWord){
+		return simWord.length;
+	}
+	var finish = letterCount(myWord);
+	document.write('Your word consists of ' + finish + ' letters');
+	
+	//=========== 8 ====================================
+	document.write('<br><br>'); document.write('======= 3 ================= <br><br>');
+	
+	//вывести текущее время
+		var now = new Date();
+		var hour = now.getHours();
+		var minutes = now.getMinutes();
+		var seconds = now.getSeconds();
+		if (minutes < 10){minutes = '0' + minutes;}
+		if (seconds < 10){seconds = '0' + seconds;}
+		document.write('Current time is  ' + hour + " : " + minutes + " : " + seconds + "<br>");
+	
+	//=========== 9 ====================================
+	document.write('<br><br>'); document.write('======= 4 ================= <br><br>');
+	//1. запросить сколько лет, 2. какой год, 3. вывести инфу сколько было лет за все предыдущие года
+	var age = prompt('How old are you? ');
+	var year = prompt('Whot is the year now? ')
+	while (age >= 0){
+		if(age == 0){
+			 document.write( ' You were born in  ' + year + ' year');
+		}else		
+		  document.write('In ' + year + '  you was ' + age + 'years old <br>');
+		 age--;
+		 year--;
+	}	
+  
+	</script>
+</body>
+</html>
